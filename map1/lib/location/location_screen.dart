@@ -41,9 +41,9 @@ class _LocationScreenState extends State<LocationScreen> {
                       child: CircularProgressIndicator(),
                     );
                   } else if (state is GeolocationLoaded) {
-                    return const Gmap(
-                      lat: 10,
-                      lng: 10,
+                    return Gmap(
+                      lat: state.position.latitude,
+                      lng: state.position.longitude,
                     );
                   } else {
                     return const Text('Something went wrong!');
