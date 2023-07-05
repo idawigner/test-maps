@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: theme(),
           onGenerateRoute: AppRouter.generateRoute,
-          initialRoute: AppRoutes.location,
+          initialRoute: AppRoutes.home,
         ),
       ),
     );

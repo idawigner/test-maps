@@ -50,13 +50,9 @@ class _LocationScreenState extends State<LocationScreen> {
                   }
                 },
               ),
-              // child: const Gmap(
-              //   lat: 10,
-              //   lng: 10,
-              // ),
             ),
             const Positioned(
-                left: 20, top: 10, right: 20, child: LocationSearchBox()),
+                left: 05, top: 02, right: 50, child: LocationSearchBox()),
             Positioned(
                 left: 20,
                 bottom: 30,
