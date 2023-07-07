@@ -18,8 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         leading: IconButton(
           icon: const Icon(Icons.location_pin),
-          onPressed: () =>
-              Navigator.pushReplacementNamed(context, AppRoutes.map),
+          onPressed: () => Navigator.pushNamed(context, AppRoutes.map),
         ),
         automaticallyImplyLeading: true,
       ),
@@ -28,17 +27,13 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton.icon(
-              onPressed: () {
-                Navigator.pushReplacementNamed(context, AppRoutes.home);
-              },
+              onPressed: () => Navigator.pushNamed(context, AppRoutes.home),
               icon: const Icon(Icons.home),
               label: const Text('Go to Home'),
             ),
             const SizedBox(height: 16),
             ElevatedButton.icon(
-              onPressed: () {
-                Navigator.pushReplacementNamed(context, AppRoutes.location);
-              },
+              onPressed: () => Navigator.pushNamed(context, AppRoutes.location),
               icon: const Icon(Icons.location_pin),
               label: const Text('Check Location'),
             ),

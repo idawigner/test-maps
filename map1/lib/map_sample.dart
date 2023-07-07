@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:map1/app_routes.dart';
 
 class MapSample extends StatefulWidget {
   const MapSample({super.key});
@@ -35,9 +34,7 @@ class MapSampleState extends State<MapSample> {
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pushReplacementNamed(context, AppRoutes.home);
-          },
+          onPressed: () => Navigator.pop(context),
         ),
         automaticallyImplyLeading: true,
       ),
