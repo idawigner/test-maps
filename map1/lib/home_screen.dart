@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ElevatedButton.icon(
               onPressed: () => Navigator.pushNamed(context, AppRoutes.location),
               icon: const Icon(Icons.location_pin),
-              label: const Text('Check Location'),
+              label: const Text('Get Location'),
             ),
           ],
         ),
