@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:map1/blocs/autocomplete/autocomplete_bloc.dart';
 import 'package:map1/blocs/geolocation/geolocation_bloc.dart';
 import 'package:map1/screens/location/components/gmap.dart';
 import 'package:map1/screens/location/components/location_search_box.dart';
@@ -15,6 +16,7 @@ class _LocationScreenState extends State<LocationScreen> {
   @override
   Widget build(BuildContext context) {
     double sW = MediaQuery.of(context).size.width;
+    double sH = MediaQuery.of(context).size.height;
     return Scaffold(
         appBar: AppBar(
           title: const Text(
@@ -48,11 +50,45 @@ class _LocationScreenState extends State<LocationScreen> {
                 },
               ),
             ),
-            const Positioned(
+            Positioned(
               left: 05,
               top: 02,
               right: 50,
-              child: LocationSearchBox(),
+              child: Column(
+                children: [
+                  const LocationSearchBox(),
+                  BlocBuilder<AutocompleteBloc, AutocompleteState>(
+                    builder: (context, state) {
+                      if (state is AutocompleteLoading) {
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      } else if (state is AutocompleteLoaded) {
+                        return Container(
+                          margin: const EdgeInsets.all(8.0),
+                          height: sH * 0.3,
+                          color: Colors.black.withOpacity(0.6),
+                          child: ListView.builder(
+                              itemCount: state.autocomplete.length,
+                              itemBuilder: (context, index) {
+                                return ListTile(
+                                  title: Text(
+                                    state.autocomplete[index].description,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyMedium!
+                                        .copyWith(color: Colors.white),
+                                  ),
+                                );
+                              }),
+                        );
+                      } else {
+                        return const Text('Something Wrong in loc-sc!');
+                      }
+                    },
+                  ),
+                ],
+              ),
             ),
             Positioned(
                 left: 20,

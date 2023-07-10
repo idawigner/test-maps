@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:map1/constant.dart';
 import 'package:map1/home_screen.dart';
-import 'package:map1/location/location_screen.dart';
 import 'package:map1/map_sample.dart';
+import 'package:map1/screens/location/location_screen.dart';
 
 class AppRoutes {
   static const String home = '/home';
