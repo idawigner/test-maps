@@ -15,7 +15,8 @@ class PlacesRepository extends BasePlacesRepository {
     var response = await http.get(Uri.parse(url));
     var json = convert.jsonDecode(response.body);
     var results = json['predictions'] as List;
-
-    return results.map((place) => PlaceAutocomplete.fromJson(place)).toList();
+    var output =
+        results.map((place) => PlaceAutocomplete.fromJson(place)).toList();
+    return output;
   }
 }

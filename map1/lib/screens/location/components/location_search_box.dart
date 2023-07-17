@@ -39,10 +39,12 @@ class LocationSearchBox extends StatelessWidget {
               context
                   .read<AutocompleteBloc>()
                   .add(LoadAutocomplete(searchInput: value));
+              print("ONCHANGED CALLED**************************");
             },
           ),
         );
       } else {
+        print("error in lsb");
         return const Text('Something Wrong in loc-box!');
       }
     });

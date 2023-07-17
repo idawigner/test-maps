@@ -67,7 +67,9 @@ class _LocationScreenState extends State<LocationScreen> {
                         return Container(
                           margin: const EdgeInsets.all(8.0),
                           height: sH * 0.3,
-                          color: Colors.black.withOpacity(0.6),
+                          color: state.autocomplete.isNotEmpty
+                              ? Colors.black.withOpacity(0.6)
+                              : Colors.transparent,
                           child: ListView.builder(
                               itemCount: state.autocomplete.length,
                               itemBuilder: (context, index) {
