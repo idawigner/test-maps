@@ -1,10 +1,12 @@
+import '../../constant.dart';
 import '../../models/place_autocomplete_model.dart';
+import '../../models/place_model.dart';
 import 'base_places_repository.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 
 class PlacesRepository extends BasePlacesRepository {
-  final String key = 'AIzaSyD8M_Kggdes7YJ8_UQGhM1DNyKejyo1br4';
+  final String key = mapApiKey;
   final String types = 'geocode';
 
   @override
@@ -18,5 +20,17 @@ class PlacesRepository extends BasePlacesRepository {
     var output =
         results.map((place) => PlaceAutocomplete.fromJson(place)).toList();
     return output;
+  }
+
+  @override
+  Future<Place> getPlace(String placeId) async {
+    final String url =
+        'https://maps.googleapis.com/maps/api/place/details/json?place_id=$placeId&key=$key';
+
+    var response = await http.get(Uri.parse(url));
+    var json = convert.jsonDecode(response.body);
+    var results = json['result'] as Map<String, dynamic>;
+
+    return Place.fromJson(results);
   }
 }

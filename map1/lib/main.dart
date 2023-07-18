@@ -7,6 +7,8 @@ import 'package:map1/repositories/geolocation/geolocation_repository.dart';
 import 'package:map1/repositories/places/places_repository.dart';
 import 'package:map1/theme.dart';
 
+import 'blocs/place/place_bloc.dart';
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -34,6 +36,9 @@ class MyApp extends StatelessWidget {
               create: (context) => AutocompleteBloc(
                   placesRepository: context.read<PlacesRepository>())
                 ..add(LoadAutocomplete())),
+          BlocProvider(
+              create: (context) => PlaceBloc(
+                  placesRepository: context.read<PlacesRepository>())),
         ],
         child: MaterialApp(
           title: 'Maps 1',

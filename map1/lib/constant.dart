@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-const String androidAPIKey = "AIzaSyD8M_Kggdes7YJ8_UQGhM1DNyKejyo1br4";
-const String iosAPIKey = "AIzaSyACxOmGqkIP8vKU7cn-WKELhZydmLCH3jY";
+const String mapApiKey = "AIzaSyCnY23rrilJk98oaiuwfTMUG9lFmvbLvO8";
 
 const yPrimaryColorLight = Color(0xFFFFCF63);
 const yPrimaryColor = Color(0xFFFEAF00);

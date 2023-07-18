@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         leading: IconButton(
           icon: const Icon(Icons.location_pin),
-          onPressed: () => Navigator.pushNamed(context, AppRoutes.map),
+          onPressed: () => Navigator.pushNamed(context, AppRoutes.location),
         ),
         automaticallyImplyLeading: true,
       ),
